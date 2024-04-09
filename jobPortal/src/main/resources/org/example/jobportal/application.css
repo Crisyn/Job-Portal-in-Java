@@ -1,0 +1,13 @@
+#title{
+    -fx-font-size: 20pt;
+
+}
+.navbar{
+    -fx-background-color: #2d2d2d;
+}
+#searchbar{
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-border-color: black;
+    -fx-background-color: #2d2d2d;
+}
