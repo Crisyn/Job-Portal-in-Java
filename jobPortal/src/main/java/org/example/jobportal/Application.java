@@ -19,6 +19,8 @@ public class Application extends javafx.application.Application {
     }
 
     public static void main(String[] args) {
+        Controller t1 = new Controller();
+        t1.displayJobName();
         launch();
     }
 }
