@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -8,8 +9,17 @@
         <Label fx:id="title" text="Job Portal" textFill="WHITE" />
     </HBox>
 
-    <TextArea fx:id="searchbar" maxHeight="10.0" maxWidth="200.0" promptText="Search" />
-    <GridPane>
-
-    </GridPane>
+    <TextField fx:id="searchbar" maxHeight="5.0" maxWidth="200.0" promptText="Search">
+      <VBox.margin>
+         <Insets top="10.0" />
+      </VBox.margin></TextField>
+     <VBox styleClass="card">
+         <Label text="Label" />
+     </VBox>
+     <VBox styleClass="card">
+         <Label text="Label" />
+     </VBox>
+     <VBox prefHeight="18.0" prefWidth="38.0" styleClass="card">
+         <Label text="Label" />
+     </VBox>
 </VBox>
