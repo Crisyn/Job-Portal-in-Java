@@ -6,6 +6,7 @@ module org.example.jobportal {
     requires net.synedra.validatorfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
+    requires java.desktop;
 
     opens org.example.jobportal to javafx.fxml;
     exports org.example.jobportal;
