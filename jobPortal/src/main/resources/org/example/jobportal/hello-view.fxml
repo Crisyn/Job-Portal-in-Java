@@ -9,7 +9,7 @@
             <Label fx:id="title" text="Job Portal" textFill="WHITE" />
         </HBox>
 
-        <TextField fx:id="searchbar" maxHeight="5.0" maxWidth="200.0" promptText="Search">
+        <TextField fx:id="searchbar" maxHeight="5.0" maxWidth="200.0" promptText="Search" styleClass="text-field">
             <VBox.margin>
                 <Insets bottom="20.0" top="10.0" />
             </VBox.margin></TextField>
@@ -38,7 +38,7 @@
             </VBox>
 
         </ScrollPane>
-        <Button styleClass="button" text="Ad Job" />
+        <Button styleClass="button" text="Add Job" onAction="#switchToScene2"/>
 
     </VBox>
 
