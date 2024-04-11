@@ -4,12 +4,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-    <VBox alignment="TOP_CENTER" prefHeight="359.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.jobportal.Controller">
+<VBox alignment="TOP_CENTER" prefHeight="359.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.jobportal.Controller">
         <HBox alignment="TOP_CENTER" prefHeight="41.0" prefWidth="402.0" styleClass="navbar">
             <Label fx:id="title" text="Job Portal" textFill="WHITE" />
         </HBox>
 
-        <TextField fx:id="searchbar" maxHeight="5.0" maxWidth="200.0" promptText="Search">
+        <TextField fx:id="searchField" maxHeight="5.0" maxWidth="200.0" promptText="Search">
             <VBox.margin>
                 <Insets bottom="20.0" top="10.0" />
             </VBox.margin></TextField>
@@ -20,10 +20,10 @@
                     <VBox.margin>
                         <Insets bottom="10.0" />
                     </VBox.margin>
-                    <Label text="Koch" />
-                    <Label id="location" text="Location" />
-                    <Label id="description" text="Description" />
-                    <Label id="employmentType" text="Employment Type" />
+                    <Label fx:id="name" text="Koch" />
+                    <Label fx:id="location" text="Location" />
+                    <Label fx:id="description" text="Description" />
+                    <Label fx:id="employmentType" text="Employment Type" />
                 </VBox>
 
                 <VBox alignment="TOP_CENTER" minWidth="500" prefHeight="196.0" prefWidth="500.0" styleClass="card">
@@ -38,9 +38,6 @@
             </VBox>
 
         </ScrollPane>
-        <Button styleClass="button" text="Ad Job" />
+        <Button fx:id="button" styleClass="button" text="Ad Job" />
 
     </VBox>
-
-
-

@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c45656fd-2dbf-4cfe-9ba0-a81472953f44" name="Changes" comment="add setup for connection with DB">
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+    <list default="true" id="c45656fd-2dbf-4cfe-9ba0-a81472953f44" name="Changes" comment="fix: put mysql jcdb connector into pom">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jobportal/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jobportal/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jobportal/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jobportal/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jobportal/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jobportal/DatabaseConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/jobportal/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/jobportal/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mysql-connector-j-8.3.0.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,10 +61,16 @@
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql_aurora_aws&quot;,
+      &quot;mysql&quot;
+    ]
   }
 }</component>
   <component name="RunManager">
-    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Application" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.jobportal.Application" />
       <module name="jobPortal" />
       <extension name="coverage">
@@ -77,11 +83,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Application" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -106,7 +107,8 @@
       <workItem from="1712597214953" duration="474000" />
       <workItem from="1712692285092" duration="694000" />
       <workItem from="1712734164544" duration="2210000" />
-      <workItem from="1712748022637" duration="4637000" />
+      <workItem from="1712748022637" duration="5364000" />
+      <workItem from="1712820842978" duration="8729000" />
     </task>
     <task id="LOCAL-00001" summary="add setup for connection with DB">
       <option name="closed" value="true" />
@@ -116,7 +118,23 @@
       <option name="project" value="LOCAL" />
       <updated>1712597578209</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="DB improve">
+      <option name="closed" value="true" />
+      <created>1712754178325</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1712754178325</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fix: put mysql jcdb connector into pom">
+      <option name="closed" value="true" />
+      <created>1712822636183</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1712822636183</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,7 +145,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -135,6 +165,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add setup for connection with DB" />
-    <option name="LAST_COMMIT_MESSAGE" value="add setup for connection with DB" />
+    <MESSAGE value="DB improve" />
+    <MESSAGE value="fix: put mysql jcdb connector into pom" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: put mysql jcdb connector into pom" />
   </component>
 </project>
