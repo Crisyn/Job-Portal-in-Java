@@ -38,6 +38,9 @@
             </VBox>
 
         </ScrollPane>
-        <Button fx:id="button" styleClass="button" text="Ad Job" />
+        <Button styleClass="button" text="Add Job" onAction="#switchToScene2"/>
 
     </VBox>
+
+
+
