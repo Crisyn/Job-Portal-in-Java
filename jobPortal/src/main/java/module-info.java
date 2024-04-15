@@ -8,6 +8,8 @@ module org.example.jobportal {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires java.desktop;
+    requires java.net.http;
+    requires com.google.gson;
 
     opens org.example.jobportal to javafx.fxml;
     exports org.example.jobportal;
