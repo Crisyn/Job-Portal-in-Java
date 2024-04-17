@@ -19,9 +19,7 @@ import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Arrays;
 import java.util.Objects;
@@ -36,15 +34,12 @@ public class Controller {
 
     private String searchbarOut = "IT";
     //Get Job Infos from DB where searchbar is like jobName
-    DatabaseConnection db = new DatabaseConnection();
-    Connection conn = db.getConnection();
     private String searchBar = "";
 
     @FXML
     public void initialize() {
         searchField.textProperty().addListener((o, oldP, newP) -> {
             searchBar = newP;
-            displayJobName();
         });
 
         // displayJobName();
@@ -71,6 +66,7 @@ public class Controller {
                     Platform.runLater(() -> {
 
                         // Hier macht ihr ui updates
+                       name.setText(j[0].jobName);
                     });
                 } catch (Exception e) {
                     System.out.println(e);
@@ -89,60 +85,6 @@ public class Controller {
         }
     }
 
-    public void displayJobName() {
-
-
-        String query = "select jobName from jobInfo where jobName like " + "'" + searchBar + "'";
-
-        try {
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
-
-            while (rs.next()) {
-                name.setText(rs.getString("jobName"));
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    public void jobShortDescription(ActionEvent event) {
-        String query = "select jobShortDescription from jobInfo where jobName like ";
-
-        try {
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
-            System.out.println(rs);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void jobLocation(ActionEvent event) {
-        String query = "select jobLocation from jobInfo where jobName like ";
-
-        try {
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
-            System.out.println(rs);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void emplymentType(ActionEvent event) {
-        String query = "select emplymentType from jobInfo where jobName like ";
-
-        try {
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
-            System.out.println(rs);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     private Scene scene;
     private Stage stage;

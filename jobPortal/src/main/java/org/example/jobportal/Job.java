@@ -28,4 +28,52 @@ public class Job {
                 ", favorited=" + favorited +
                 '}';
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getJobName() {
+        return jobName;
+    }
+
+    public void setJobName(String jobName) {
+        this.jobName = jobName;
+    }
+
+    public String getJobShortDescription() {
+        return jobShortDescription;
+    }
+
+    public void setJobShortDescription(String jobShortDescription) {
+        this.jobShortDescription = jobShortDescription;
+    }
+
+    public String getJobLocation() {
+        return jobLocation;
+    }
+
+    public void setJobLocation(String jobLocation) {
+        this.jobLocation = jobLocation;
+    }
+
+    public String getEmplymentType() {
+        return emplymentType;
+    }
+
+    public void setEmplymentType(String emplymentType) {
+        this.emplymentType = emplymentType;
+    }
+
+    public boolean isFavorited() {
+        return favorited;
+    }
+
+    public void setFavorited(boolean favorited) {
+        this.favorited = favorited;
+    }
 }
