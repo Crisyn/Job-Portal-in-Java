@@ -16,6 +16,7 @@
 .card{
     -fx-background-color: white;
     -fx-backgroud-radius: 10px;
+    -fx-border-radius: 10px;
     -fx-fill-width: always;
 
 }

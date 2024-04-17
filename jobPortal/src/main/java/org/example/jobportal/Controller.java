@@ -9,9 +9,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.kordamp.bootstrapfx.BootstrapFX;
-import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.net.URI;
@@ -27,6 +29,16 @@ import java.util.Objects;
 public class Controller {
     private Gson gson = new Gson();
 
+    @FXML
+    public ScrollPane scrollPane = new ScrollPane();
+    @FXML
+    public TextField jobName;
+    @FXML
+    public TextField jobLocation;
+    @FXML
+    public TextField jobDescription;
+    @FXML
+    public TextField jobEmploymentType;
     @FXML
     private Label name;
     @FXML
@@ -99,9 +111,7 @@ public class Controller {
         stage.setScene(scene);
         stage.show();
     }
-
-    public void addJob(ActionEvent event) throws IOException {
-
+    public void switchToMainScene(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root, 960, 540);
@@ -109,6 +119,19 @@ public class Controller {
         scene.getStylesheets().add(BootstrapFX.bootstrapFXStylesheet());
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void addJob(ActionEvent event) throws IOException {
+        switchToMainScene(event);
+        createElement(jobName.getText(), jobLocation.getText(), jobDescription.getText(), jobEmploymentType.getText());
+    }
+
+    public void createElement(String jobName, String jobDescription, String jobLocation, String employmentType){
+        Job job = new Job(jobName, jobDescription, jobLocation, employmentType);
+        VBox card = new VBox();
+        card.getStyleClass().add("card");
+        card.getChildren().addAll(new Label(job.getJobName()), new Label(job.getJobLocation()), new Label(job.getJobDescription()), new Label(job.getJobEmploymentType()));
+        scrollPane.setContent(card);
 
     }
 }
