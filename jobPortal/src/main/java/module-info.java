@@ -10,6 +10,7 @@ module org.example.jobportal {
     requires java.desktop;
     requires java.net.http;
     requires com.google.gson;
+    requires atlantafx.base;
 
     opens org.example.jobportal to javafx.fxml;
     exports org.example.jobportal;

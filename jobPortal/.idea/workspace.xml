@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c45656fd-2dbf-4cfe-9ba0-a81472953f44" name="Changes" comment="my sql query">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/jobportal/BackendURIs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/jobportal/Job.java" afterDir="false" />
+    <list default="true" id="c45656fd-2dbf-4cfe-9ba0-a81472953f44" name="Changes" comment="fixed typos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
@@ -26,7 +23,9 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
@@ -146,7 +145,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713161300096</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fixed typos">
+      <option name="closed" value="true" />
+      <created>1713358620810</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1713358620810</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,6 +187,7 @@
     <MESSAGE value="DB improve" />
     <MESSAGE value="fix: put mysql jcdb connector into pom" />
     <MESSAGE value="my sql query" />
-    <option name="LAST_COMMIT_MESSAGE" value="my sql query" />
+    <MESSAGE value="fixed typos" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed typos" />
   </component>
 </project>

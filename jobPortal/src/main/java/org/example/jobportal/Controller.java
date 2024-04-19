@@ -103,7 +103,7 @@ public class Controller {
     private Parent root;
 
     public void switchToScene2(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("add-job.fxml")));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("add-job.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root, 960, 540);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("application.css")).toExternalForm());
@@ -112,7 +112,7 @@ public class Controller {
         stage.show();
     }
     public void switchToMainScene(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root, 960, 540);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("application.css")).toExternalForm());
@@ -127,11 +127,13 @@ public class Controller {
     }
 
     public void createElement(String jobName, String jobDescription, String jobLocation, String employmentType){
-        Job job = new Job(jobName, jobDescription, jobLocation, employmentType);
+        Job job = new Job(1, jobName, jobDescription, jobLocation, employmentType, false);
         VBox card = new VBox();
         card.getStyleClass().add("card");
-        card.getChildren().addAll(new Label(job.getJobName()), new Label(job.getJobLocation()), new Label(job.getJobDescription()), new Label(job.getJobEmploymentType()));
+        card.getChildren().addAll(new Label(job.getJobName()), new Label(job.getJobLocation()), new Label(job.getJobShortDescription()), new Label(job.getEmploymentType()));
         scrollPane.setContent(card);
 
     }
+
+
 }
