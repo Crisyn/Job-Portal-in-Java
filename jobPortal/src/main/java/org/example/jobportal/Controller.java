@@ -16,15 +16,18 @@ import javafx.stage.Stage;
 import org.kordamp.bootstrapfx.BootstrapFX;
 
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
+import java.net.*;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 public class Controller {
     private Gson gson = new Gson();
@@ -50,9 +53,6 @@ public class Controller {
 
     @FXML
     public void initialize() {
-        searchField.textProperty().addListener((o, oldP, newP) -> {
-            searchBar = newP;
-        });
 
         // displayJobName();
         try {
@@ -97,6 +97,20 @@ public class Controller {
         }
     }
 
+    public void putJob() throws URISyntaxException, ExecutionException, InterruptedException {
+        HttpClient httpClient = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:8080"))
+                .POST(HttpRequest.BodyPublishers.ofString("{\"action\":\"hello\"}"))
+                .build();
+
+        CompletableFuture<HttpResponse<String>> future = httpClient.sendAsync(request, HttpResponse.BodyHandlers.ofString());
+
+        HttpResponse<String> response = future.get();
+        assert(response.statusCode() == 200);
+        assert(response.body()).equals("{\"message\":\"ok\"}");
+    }
+
 
     private Scene scene;
     private Stage stage;
@@ -121,7 +135,8 @@ public class Controller {
         stage.show();
     }
 
-    public void addJob(ActionEvent event) throws IOException {
+    public void addJob(ActionEvent event) throws IOException, URISyntaxException, ExecutionException, InterruptedException {
+        putJob();
         switchToMainScene(event);
         createElement(jobName.getText(), jobLocation.getText(), jobDescription.getText(), jobEmploymentType.getText());
     }
