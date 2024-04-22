@@ -5,6 +5,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -27,8 +28,10 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 public class Controller {
-    private Gson gson = new Gson();
 
+    private Gson gson = new Gson();
+    @FXML
+    public VBox scrollPaneVBox;
     @FXML
     public ScrollPane scrollPane = new ScrollPane();
     @FXML
@@ -50,7 +53,6 @@ public class Controller {
 
     @FXML
     public void initialize() {
-
         // displayJobName();
         try {
             fetchJobs();
@@ -139,10 +141,10 @@ public class Controller {
     public void createElement(String jobName, String jobDescription, String jobLocation, String employmentType){
         Job job = new Job(jobName, jobDescription, jobLocation, employmentType, false);
         VBox card = new VBox();
+        card.setAlignment(Pos.CENTER);
         card.getStyleClass().add("card");
         card.getChildren().addAll(new Label(job.getJobName()), new Label(job.getJobLocation()), new Label(job.getJobShortDescription()), new Label(job.getEmploymentType()));
-        scrollPane.setContent(card);
-
+        scrollPaneVBox.getChildren().addAll(card);
     }
 
 

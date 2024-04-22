@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c45656fd-2dbf-4cfe-9ba0-a81472953f44" name="Changes" comment="add job to db">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jobportal/Job.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jobportal/Job.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jobportal/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jobportal/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/jobportal/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/jobportal/application.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/jobportal/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/jobportal/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

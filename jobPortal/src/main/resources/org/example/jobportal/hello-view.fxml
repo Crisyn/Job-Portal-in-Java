@@ -14,8 +14,8 @@
                 <Insets bottom="20.0" top="10.0" />
             </VBox.margin></TextField>
 
-        <ScrollPane fitToHeight="true" maxWidth="500" styleClass="scrollPane" fx:id="scrollPane">
-            <VBox alignment="TOP_CENTER" maxWidth="500">
+        <ScrollPane fitToHeight="true" maxWidth="500" maxHeight="700" styleClass="scrollPane" fx:id="scrollPane">
+            <VBox alignment="TOP_CENTER" maxWidth="500" fx:id="scrollPaneVBox">
                 <VBox alignment="TOP_CENTER" minWidth="500" styleClass="card">
                     <VBox.margin>
                         <Insets bottom="10.0" />
