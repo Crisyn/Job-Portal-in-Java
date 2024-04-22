@@ -8,8 +8,7 @@ public class Job {
     public String employmentType;
     public boolean favorited;
 
-    public Job(int id, String jobName, String jobShortDescription, String jobLocation, String emplymentType, boolean favorited) {
-        this.id = id;
+    public Job(String jobName, String jobShortDescription, String jobLocation, String emplymentType, boolean favorited) {
         this.jobName = jobName;
         this.jobShortDescription = jobShortDescription;
         this.jobLocation = jobLocation;
@@ -20,7 +19,6 @@ public class Job {
     @Override
     public String toString() {
         return "Job{" +
-                "id=" + id +
                 ", jobName='" + jobName + '\'' +
                 ", jobShortDescription='" + jobShortDescription + '\'' +
                 ", jobLocation='" + jobLocation + '\'' +
@@ -29,13 +27,6 @@ public class Job {
                 '}';
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getJobName() {
         return jobName;

@@ -18,13 +18,10 @@ import org.kordamp.bootstrapfx.BootstrapFX;
 import java.io.IOException;
 import java.net.*;
 import java.net.http.HttpClient;
+import java.net.http.HttpHeaders;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -72,13 +69,9 @@ public class Controller {
             http.sendAsync(req, HttpResponse.BodyHandlers.ofString()).thenAccept((response) -> {
                 try {
                     Job[] j = gson.fromJson(response.body(), Job[].class);
-                    System.out.println("the jobb be");
-                    System.out.println(Arrays.toString(j));
-
                     Platform.runLater(() -> {
 
                         // Hier macht ihr ui updates
-                       name.setText(j[0].jobName);
                     });
                 } catch (Exception e) {
                     System.out.println(e);
@@ -97,18 +90,20 @@ public class Controller {
         }
     }
 
-    public void putJob() throws URISyntaxException, ExecutionException, InterruptedException {
-        HttpClient httpClient = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:8080"))
-                .POST(HttpRequest.BodyPublishers.ofString("{\"action\":\"hello\"}"))
+    public void postJob(String jobName, String jobDescription, String jobLocation, String employmentType) throws URISyntaxException, IOException, InterruptedException {
+        Job job = new Job(jobName,jobDescription,jobLocation,employmentType,false);
+        HttpClient httpClient = HttpClient.newBuilder().build();
+        HttpRequest req = HttpRequest.newBuilder()
+                .POST(HttpRequest.BodyPublishers.ofString(gson.toJson(job)))
+                .uri(URI.create("http://localhost:8080/addJob"))
+                .setHeader("User-Agent", "Java 11 HttpCliant Bot")
+                .header("Content-Type", "application/json")
                 .build();
 
-        CompletableFuture<HttpResponse<String>> future = httpClient.sendAsync(request, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> resp = httpClient.send(req,HttpResponse.BodyHandlers.ofString());
 
-        HttpResponse<String> response = future.get();
-        assert(response.statusCode() == 200);
-        assert(response.body()).equals("{\"message\":\"ok\"}");
+        System.out.println(resp.statusCode());
+        System.out.println(resp.body());
     }
 
 
@@ -136,13 +131,13 @@ public class Controller {
     }
 
     public void addJob(ActionEvent event) throws IOException, URISyntaxException, ExecutionException, InterruptedException {
-        putJob();
+        postJob(jobName.getText(), jobLocation.getText(), jobDescription.getText(), jobEmploymentType.getText());
         switchToMainScene(event);
         createElement(jobName.getText(), jobLocation.getText(), jobDescription.getText(), jobEmploymentType.getText());
     }
 
     public void createElement(String jobName, String jobDescription, String jobLocation, String employmentType){
-        Job job = new Job(1, jobName, jobDescription, jobLocation, employmentType, false);
+        Job job = new Job(jobName, jobDescription, jobLocation, employmentType, false);
         VBox card = new VBox();
         card.getStyleClass().add("card");
         card.getChildren().addAll(new Label(job.getJobName()), new Label(job.getJobLocation()), new Label(job.getJobShortDescription()), new Label(job.getEmploymentType()));
