@@ -8,12 +8,12 @@ public class Job {
     public String employmentType;
     public boolean favorited;
 
-    public Job(String jobName, String jobShortDescription, String jobLocation, String emplymentType, boolean favorited) {
+    public Job(String jobName, String jobShortDescription, String jobLocation, String employmentType, boolean favorite) {
         this.jobName = jobName;
         this.jobShortDescription = jobShortDescription;
         this.jobLocation = jobLocation;
-        this.employmentType = emplymentType;
-        this.favorited = favorited;
+        this.employmentType = employmentType;
+        this.favorited = favorite;
     }
 
     @Override
@@ -22,8 +22,8 @@ public class Job {
                 ", jobName='" + jobName + '\'' +
                 ", jobShortDescription='" + jobShortDescription + '\'' +
                 ", jobLocation='" + jobLocation + '\'' +
-                ", emplymentType='" + employmentType + '\'' +
-                ", favorited=" + favorited +
+                ", employmentType='" + employmentType + '\'' +
+                ", favorite=" + favorited +
                 '}';
     }
 
@@ -56,8 +56,8 @@ public class Job {
         return employmentType;
     }
 
-    public void setEmploymentType(String emplymentType) {
-        this.employmentType = emplymentType;
+    public void setEmploymentType(String employmentType) {
+        this.employmentType = employmentType;
     }
 
     public boolean isFavorited() {

@@ -90,13 +90,13 @@ public class Controller {
         }
     }
 
-    public void postJob(String jobName, String jobDescription, String jobLocation, String employmentType) throws URISyntaxException, IOException, InterruptedException {
+    public void postJob(String jobName, String jobDescription, String jobLocation, String employmentType) throws IOException, InterruptedException {
         Job job = new Job(jobName,jobDescription,jobLocation,employmentType,false);
         HttpClient httpClient = HttpClient.newBuilder().build();
         HttpRequest req = HttpRequest.newBuilder()
                 .POST(HttpRequest.BodyPublishers.ofString(gson.toJson(job)))
                 .uri(URI.create("http://localhost:8080/addJob"))
-                .setHeader("User-Agent", "Java 11 HttpCliant Bot")
+                .setHeader("User-Agent", "Java 11 HttpClient Bot")
                 .header("Content-Type", "application/json")
                 .build();
 
@@ -130,7 +130,7 @@ public class Controller {
         stage.show();
     }
 
-    public void addJob(ActionEvent event) throws IOException, URISyntaxException, ExecutionException, InterruptedException {
+    public void addJob(ActionEvent event) throws IOException ,InterruptedException {
         postJob(jobName.getText(), jobLocation.getText(), jobDescription.getText(), jobEmploymentType.getText());
         switchToMainScene(event);
         createElement(jobName.getText(), jobLocation.getText(), jobDescription.getText(), jobEmploymentType.getText());

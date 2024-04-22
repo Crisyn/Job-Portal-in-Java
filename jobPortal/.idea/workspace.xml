@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c45656fd-2dbf-4cfe-9ba0-a81472953f44" name="Changes" comment="add putJob method">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jobportal/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jobportal/Controller.java" afterDir="false" />
+    <list default="true" id="c45656fd-2dbf-4cfe-9ba0-a81472953f44" name="Changes" comment="add job to db">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jobportal/Job.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jobportal/Job.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -114,7 +111,7 @@
       <workItem from="1713161032760" duration="3540000" />
       <workItem from="1713516995767" duration="3914000" />
       <workItem from="1713766322719" duration="2945000" />
-      <workItem from="1713785762254" duration="4607000" />
+      <workItem from="1713785762254" duration="4907000" />
     </task>
     <task id="LOCAL-00001" summary="add setup for connection with DB">
       <option name="closed" value="true" />
@@ -164,7 +161,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713521521421</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add job to db">
+      <option name="closed" value="true" />
+      <created>1713793841567</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1713793841567</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,6 +205,7 @@
     <MESSAGE value="my sql query" />
     <MESSAGE value="fixed typos" />
     <MESSAGE value="add putJob method" />
-    <option name="LAST_COMMIT_MESSAGE" value="add putJob method" />
+    <MESSAGE value="add job to db" />
+    <option name="LAST_COMMIT_MESSAGE" value="add job to db" />
   </component>
 </project>
