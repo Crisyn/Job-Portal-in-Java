@@ -16,12 +16,14 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.kordamp.bootstrapfx.BootstrapFX;
 
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.net.*;
 import java.net.http.HttpClient;
 import java.net.http.HttpHeaders;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.security.Key;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
@@ -43,13 +45,9 @@ public class Controller {
     @FXML
     public TextField jobEmploymentType;
     @FXML
-    private Label name;
-    @FXML
     private TextField searchField;
 
-    private String searchbarOut = "IT";
-    //Get Job Infos from DB where searchbar is like jobName
-    private String searchBar = "";
+    HttpClient httpClient = HttpClient.newBuilder().build();
 
     @FXML
     public void initialize() {
@@ -71,8 +69,8 @@ public class Controller {
             http.sendAsync(req, HttpResponse.BodyHandlers.ofString()).thenAccept((response) -> {
                 try {
                     Job[] j = gson.fromJson(response.body(), Job[].class);
+                    System.out.println(Arrays.toString(j));
                     Platform.runLater(() -> {
-
                         // Hier macht ihr ui updates
                     });
                 } catch (Exception e) {
@@ -93,8 +91,7 @@ public class Controller {
     }
 
     public void postJob(String jobName, String jobDescription, String jobLocation, String employmentType) throws IOException, InterruptedException {
-        Job job = new Job(jobName,jobDescription,jobLocation,employmentType,false);
-        HttpClient httpClient = HttpClient.newBuilder().build();
+        Job job = new Job(jobName, jobDescription, jobLocation, employmentType, false);
         HttpRequest req = HttpRequest.newBuilder()
                 .POST(HttpRequest.BodyPublishers.ofString(gson.toJson(job)))
                 .uri(URI.create("http://localhost:8080/addJob"))
@@ -102,8 +99,27 @@ public class Controller {
                 .header("Content-Type", "application/json")
                 .build();
 
-        HttpResponse<String> resp = httpClient.send(req,HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> resp = httpClient.send(req, HttpResponse.BodyHandlers.ofString());
 
+        System.out.println(resp.statusCode());
+        System.out.println(resp.body());
+    }
+
+    //not working
+    public void getJob(String searchBar) throws IOException, InterruptedException {
+        HttpRequest req = HttpRequest.newBuilder()
+                .GET()
+                .uri(URI.create("http://localhost:8080/job/" + searchBar))
+                .setHeader("User-Agent", "Java 11 HttpClient Bot")
+                .header("Content-Type", "application/json")
+                .build();
+
+        HttpResponse<String> resp = httpClient.send(req, HttpResponse.BodyHandlers.ofString());
+
+        Job[] j = gson.fromJson(resp.body(), Job[].class);
+        Platform.runLater(() -> {
+            jobName.setText(j[0].getJobName());
+        });
         System.out.println(resp.statusCode());
         System.out.println(resp.body());
     }
@@ -122,6 +138,7 @@ public class Controller {
         stage.setScene(scene);
         stage.show();
     }
+
     public void switchToMainScene(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -132,18 +149,28 @@ public class Controller {
         stage.show();
     }
 
-    public void addJob(ActionEvent event) throws IOException ,InterruptedException {
+    public void addJob(ActionEvent event) throws IOException, InterruptedException {
         postJob(jobName.getText(), jobLocation.getText(), jobDescription.getText(), jobEmploymentType.getText());
         switchToMainScene(event);
         createElement(jobName.getText(), jobLocation.getText(), jobDescription.getText(), jobEmploymentType.getText());
     }
 
-    public void createElement(String jobName, String jobDescription, String jobLocation, String employmentType){
+    //not working
+    @FXML
+    public void searchJob(ActionEvent actionEvent, String searchField) throws IOException, InterruptedException {
+        getJob(searchField);
+    }
+
+    public void createElement(String jobName, String jobDescription, String jobLocation, String employmentType) {
         Job job = new Job(jobName, jobDescription, jobLocation, employmentType, false);
         VBox card = new VBox();
         card.setAlignment(Pos.CENTER);
         card.getStyleClass().add("card");
-        card.getChildren().addAll(new Label(job.getJobName()), new Label(job.getJobLocation()), new Label(job.getJobShortDescription()), new Label(job.getEmploymentType()));
+        Label head = new Label(jobName);
+        Label location = new Label(jobLocation);
+        Label description = new Label(jobDescription);
+        Label employment = new Label(employmentType);
+        card.getChildren().addAll(head, location, description, employment);
         scrollPaneVBox.getChildren().addAll(card);
     }
 
