@@ -2,15 +2,16 @@ package org.example.jobportal;
 
 public class Job {
     public int id;
+
     public String jobName;
-    public String jobShortDescription;
+    public String jobDescription;
     public String jobLocation;
     public String employmentType;
     public boolean favorited;
 
     public Job(String jobName, String jobShortDescription, String jobLocation, String employmentType, boolean favorite) {
         this.jobName = jobName;
-        this.jobShortDescription = jobShortDescription;
+        this.jobDescription = jobShortDescription;
         this.jobLocation = jobLocation;
         this.employmentType = employmentType;
         this.favorited = favorite;
@@ -20,7 +21,7 @@ public class Job {
     public String toString() {
         return "Job{" +
                 ", jobName='" + jobName + '\'' +
-                ", jobShortDescription='" + jobShortDescription + '\'' +
+                ", jobShortDescription='" + jobDescription + '\'' +
                 ", jobLocation='" + jobLocation + '\'' +
                 ", employmentType='" + employmentType + '\'' +
                 ", favorite=" + favorited +
@@ -37,11 +38,11 @@ public class Job {
     }
 
     public String getJobShortDescription() {
-        return jobShortDescription;
+        return jobDescription;
     }
 
     public void setJobShortDescription(String jobShortDescription) {
-        this.jobShortDescription = jobShortDescription;
+        this.jobDescription = jobShortDescription;
     }
 
     public String getJobLocation() {

@@ -92,6 +92,7 @@ public class Controller {
 
     public void postJob(String jobName, String jobDescription, String jobLocation, String employmentType) throws IOException, InterruptedException {
         Job job = new Job(jobName, jobDescription, jobLocation, employmentType, false);
+        System.out.println(gson.toJson(job));
         HttpRequest req = HttpRequest.newBuilder()
                 .POST(HttpRequest.BodyPublishers.ofString(gson.toJson(job)))
                 .uri(URI.create("http://localhost:8080/addJob"))
