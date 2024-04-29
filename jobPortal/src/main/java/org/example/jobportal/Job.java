@@ -37,7 +37,7 @@ public class Job {
         this.jobName = jobName;
     }
 
-    public String getJobShortDescription() {
+    public String getJobDescription() {
         return jobDescription;
     }
 

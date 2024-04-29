@@ -167,10 +167,10 @@ public class Controller {
         VBox card = new VBox();
         card.setAlignment(Pos.CENTER);
         card.getStyleClass().add("card");
-        Label head = new Label(jobName);
-        Label location = new Label(jobLocation);
-        Label description = new Label(jobDescription);
-        Label employment = new Label(employmentType);
+        Label head = new Label(job.getJobName());
+        Label location = new Label(job.getJobLocation());
+        Label description = new Label(job.getJobDescription());
+        Label employment = new Label(job.getEmploymentType());
         card.getChildren().addAll(head, location, description, employment);
         scrollPaneVBox.getChildren().addAll(card);
     }
