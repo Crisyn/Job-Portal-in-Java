@@ -4,15 +4,15 @@ public class Job {
     public int id;
 
     public String jobName;
-    public String jobDescription;
     public String jobLocation;
+    public String jobDescription;
     public String employmentType;
     public boolean favorited;
 
-    public Job(String jobName, String jobShortDescription, String jobLocation, String employmentType, boolean favorite) {
+    public Job(String jobName, String jobLocation, String jobDescription, String employmentType, boolean favorite) {
         this.jobName = jobName;
-        this.jobDescription = jobShortDescription;
         this.jobLocation = jobLocation;
+        this.jobDescription = jobDescription;
         this.employmentType = employmentType;
         this.favorited = favorite;
     }
@@ -21,8 +21,8 @@ public class Job {
     public String toString() {
         return "Job{" +
                 ", jobName='" + jobName + '\'' +
-                ", jobShortDescription='" + jobDescription + '\'' +
                 ", jobLocation='" + jobLocation + '\'' +
+                ", jobDescription='" + jobDescription + '\'' +
                 ", employmentType='" + employmentType + '\'' +
                 ", favorite=" + favorited +
                 '}';
@@ -33,39 +33,15 @@ public class Job {
         return jobName;
     }
 
-    public void setJobName(String jobName) {
-        this.jobName = jobName;
-    }
-
     public String getJobDescription() {
         return jobDescription;
-    }
-
-    public void setJobShortDescription(String jobShortDescription) {
-        this.jobDescription = jobShortDescription;
     }
 
     public String getJobLocation() {
         return jobLocation;
     }
 
-    public void setJobLocation(String jobLocation) {
-        this.jobLocation = jobLocation;
-    }
-
     public String getEmploymentType() {
         return employmentType;
-    }
-
-    public void setEmploymentType(String employmentType) {
-        this.employmentType = employmentType;
-    }
-
-    public boolean isFavorited() {
-        return favorited;
-    }
-
-    public void setFavorited(boolean favorited) {
-        this.favorited = favorited;
     }
 }

@@ -33,7 +33,7 @@ public class Controller {
 
     private Gson gson = new Gson();
     @FXML
-    public VBox scrollPaneVBox;
+    public VBox scrollPaneVBox = new VBox();
     @FXML
     public ScrollPane scrollPane = new ScrollPane();
     @FXML
@@ -70,8 +70,12 @@ public class Controller {
                 try {
                     Job[] j = gson.fromJson(response.body(), Job[].class);
                     System.out.println(Arrays.toString(j));
+                    System.out.println(j[0].getJobName());
                     Platform.runLater(() -> {
-                        // Hier macht ihr ui updates
+                        for (int i = 0; i < j.length; i++) {
+                            createElement(j[i].getJobName(),j[i].getJobLocation(),j[i].getJobDescription(),j[i].getEmploymentType());
+                        }
+
                     });
                 } catch (Exception e) {
                     System.out.println(e);

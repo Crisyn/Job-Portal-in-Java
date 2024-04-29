@@ -18,25 +18,7 @@
 
     <ScrollPane fitToHeight="true" maxWidth="500" maxHeight="700" styleClass="scrollPane" fx:id="scrollPane">
         <VBox alignment="TOP_CENTER" maxWidth="500" fx:id="scrollPaneVBox">
-            <VBox alignment="TOP_CENTER" minWidth="500" styleClass="card">
-                <VBox.margin>
-                    <Insets bottom="10.0"/>
-                </VBox.margin>
-                <Label fx:id="name" text="Koch"/>
-                <Label fx:id="location" text="Location"/>
-                <Label fx:id="description" text="Description"/>
-                <Label fx:id="employmentType" text="Employment Type"/>
-            </VBox>
 
-            <VBox alignment="TOP_CENTER" minWidth="500" prefHeight="196.0" prefWidth="500.0" styleClass="card">
-                <VBox.margin>
-                    <Insets bottom="10.0"/>
-                </VBox.margin>
-                <Label text="Praktikum"/>
-                <Label id="location" text="Location"/>
-                <Label id="description" text="Description"/>
-                <Label id="employmentType" text="Employment Type"/>
-            </VBox>
         </VBox>
 
     </ScrollPane>
