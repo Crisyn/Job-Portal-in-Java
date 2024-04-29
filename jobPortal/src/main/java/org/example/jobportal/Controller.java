@@ -54,6 +54,7 @@ public class Controller {
         // displayJobName();
         try {
             fetchJobs();
+            scrollPaneVBox.prefWidthProperty().bind(scrollPane.widthProperty());
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
@@ -171,7 +172,9 @@ public class Controller {
         VBox card = new VBox();
         card.setAlignment(Pos.CENTER);
         card.getStyleClass().add("card");
+        card.prefWidthProperty().bind(scrollPaneVBox.widthProperty());
         Label head = new Label(job.getJobName());
+        head.getStyleClass().add("head");
         Label location = new Label(job.getJobLocation());
         Label description = new Label(job.getJobDescription());
         Label employment = new Label(job.getEmploymentType());
