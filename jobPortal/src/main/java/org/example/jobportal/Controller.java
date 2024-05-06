@@ -70,8 +70,6 @@ public class Controller {
             http.sendAsync(req, HttpResponse.BodyHandlers.ofString()).thenAccept((response) -> {
                 try {
                     Job[] j = gson.fromJson(response.body(), Job[].class);
-                    System.out.println(Arrays.toString(j));
-                    System.out.println(j[0].getJobName());
                     Platform.runLater(() -> {
                         for (int i = 0; i < j.length; i++) {
                             createElement(j[i].getJobName(),j[i].getJobLocation(),j[i].getJobDescription(),j[i].getEmploymentType());
@@ -108,7 +106,6 @@ public class Controller {
         HttpResponse<String> resp = httpClient.send(req, HttpResponse.BodyHandlers.ofString());
 
         System.out.println(resp.statusCode());
-        System.out.println(resp.body());
     }
 
     //not working
