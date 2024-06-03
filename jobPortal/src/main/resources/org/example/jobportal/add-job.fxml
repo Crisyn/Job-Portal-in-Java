@@ -9,7 +9,7 @@
     <TextField fx:id="jobDescription" layoutX="226.0" layoutY="202.0" styleClass="text-field" />
     <TextField fx:id="jobLocation" layoutX="226.0" layoutY="151.0" styleClass="text-field" />
     <TextField fx:id="jobEmploymentType" layoutX="224.0" layoutY="257.0" styleClass="text-field" />
-    <TextField fx:id="jobEMail" layoutX="224.0" layoutY="317.0" styleClass="text-field" />
+    <TextField fx:id="jobEMail" layoutX="224.0" layoutY="307.0" styleClass="text-field" />
     <Label layoutX="227.0" layoutY="81.0" text="Job Name" />
     <Label layoutX="226.0" layoutY="184.0" text="Description" />
     <Label layoutX="226.0" layoutY="133.0" text="Location" />
