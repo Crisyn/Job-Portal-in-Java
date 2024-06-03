@@ -16,10 +16,10 @@
     </TextField>
 
     <ScrollPane fx:id="scrollPane" fitToHeight="true" maxHeight="700" maxWidth="500" styleClass="scrollPane">
-        <VBox fx:id="scrollPaneVBox" alignment="TOP_CENTER" maxWidth="500" styleClass="cardContainer">
+        <VBox fx:id="scrollPaneVBox" maxWidth="500" styleClass="cardContainer">
 
         </VBox>
 
     </ScrollPane>
-    <Button onAction="#switchToScene2" styleClass="button" text="Add Job" />
+    <Button onAction="#switchToScene2" styleClass="button" text="Add Job" alignment="BOTTOM_CENTER"/>
 </VBox>

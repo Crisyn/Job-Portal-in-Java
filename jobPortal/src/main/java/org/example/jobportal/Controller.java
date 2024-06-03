@@ -16,6 +16,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.kordamp.bootstrapfx.BootstrapFX;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.*;
 import java.net.http.HttpClient;
@@ -185,15 +186,16 @@ public class Controller {
     public void createElement(String jobName, String jobDescription, String jobLocation, String employmentType, String eMail) {
         Job job = new Job(jobName, jobDescription, jobLocation, employmentType, false,eMail);
         VBox card = new VBox();
-        card.setAlignment(Pos.CENTER);
+        card.setAlignment(Pos.CENTER_LEFT);
         card.getStyleClass().add("card");
         card.prefWidthProperty().bind(scrollPaneVBox.widthProperty());
         Label head = new Label(job.getJobName());
         head.getStyleClass().add("head");
-        Label location = new Label(job.getJobLocation());
-        Label description = new Label(job.getJobDescription());
-        Label employment = new Label(job.getEmploymentType());
-        Label email = new Label(eMail);
+        Label location = new Label("Location:                 " + job.getJobLocation());
+        Label description = new Label("Description:             " + job.getJobDescription());
+        Label employment = new Label("Employment-type:   " + job.getEmploymentType());
+        Label email = new Label(job.getEMailAddress());
+        email.getStyleClass().add("email");
         card.getChildren().addAll(head, location, description, employment, email);
         scrollPaneVBox.getChildren().addAll(card);
     }

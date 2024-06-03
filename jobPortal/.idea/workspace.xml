@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c45656fd-2dbf-4cfe-9ba0-a81472953f44" name="Changes" comment="removed debugging statement">
+    <list default="true" id="c45656fd-2dbf-4cfe-9ba0-a81472953f44" name="Changes" comment="add Email to jobs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jobportal/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jobportal/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jobportal/Job.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jobportal/Job.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/jobportal/add-job.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/jobportal/add-job.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/jobportal/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/jobportal/application.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/jobportal/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/jobportal/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +70,12 @@
     ]
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jakob\dev\job-portal\jobPortal\src\main\java\org\example\jobportal" />
+      <recent name="C:\Users\jakob\dev\job-portal\jobPortal\src\main\java\org\example\jobportal\icons" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Application" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.jobportal.Application" />
@@ -127,7 +131,7 @@
       <workItem from="1716365052547" duration="31000" />
       <workItem from="1716983161862" duration="3149000" />
       <workItem from="1716986341288" duration="1192000" />
-      <workItem from="1717394624341" duration="2339000" />
+      <workItem from="1717394624341" duration="4035000" />
     </task>
     <task id="LOCAL-00001" summary="add setup for connection with DB">
       <option name="closed" value="true" />
@@ -217,7 +221,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714980088703</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add Email to jobs">
+      <option name="closed" value="true" />
+      <created>1717397238885</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1717397238885</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,6 +270,7 @@
     <MESSAGE value="fix jobDescription is null" />
     <MESSAGE value="change name of jobShortDescription to JobDescription" />
     <MESSAGE value="removed debugging statement" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed debugging statement" />
+    <MESSAGE value="add Email to jobs" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Email to jobs" />
   </component>
 </project>
