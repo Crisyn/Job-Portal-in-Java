@@ -16,18 +16,12 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.kordamp.bootstrapfx.BootstrapFX;
 
-import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.net.*;
 import java.net.http.HttpClient;
-import java.net.http.HttpHeaders;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.security.Key;
-import java.util.Arrays;
 import java.util.Objects;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
 
 public class Controller {
 
@@ -45,7 +39,9 @@ public class Controller {
     @FXML
     public TextField jobEmploymentType;
     @FXML
-    private TextField searchField;
+    public TextField searchField;
+    @FXML
+    public TextField jobEMail;
 
     HttpClient httpClient = HttpClient.newBuilder().build();
 
@@ -55,26 +51,47 @@ public class Controller {
         try {
             fetchJobs();
             scrollPaneVBox.prefWidthProperty().bind(scrollPane.widthProperty());
+
+            if (searchField == null) return;
+            searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+                System.out.println(newValue);
+                try {
+                    fetchJobs(newValue.isEmpty() ? null : newValue);
+                } catch (URISyntaxException e) {
+                    throw new RuntimeException(e);
+                }
+            });
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
     }
 
     public void fetchJobs() throws URISyntaxException {
+        fetchJobs(null);
+    }
+
+    public void fetchJobs(String search) throws URISyntaxException {
+        var uriString = BackendURIs.getJobs();
+        if (search != null) {
+            uriString += "/" + search;
+        }
+
         var req = HttpRequest.newBuilder()
-                .uri(new URI(BackendURIs.getJobs()))
+                .uri(new URI(uriString))
                 .GET()
                 .build();
+        System.out.println(req);
 
         try (HttpClient http = HttpClient.newBuilder().build()) {
             http.sendAsync(req, HttpResponse.BodyHandlers.ofString()).thenAccept((response) -> {
                 try {
                     Job[] j = gson.fromJson(response.body(), Job[].class);
                     Platform.runLater(() -> {
-                        for (int i = 0; i < j.length; i++) {
-                            createElement(j[i].getJobName(),j[i].getJobLocation(),j[i].getJobDescription(),j[i].getEmploymentType());
-                        }
+                        scrollPaneVBox.getChildren().clear();
 
+                        for (Job job : j) {
+                            createElement(job.getJobName(), job.getJobLocation(), job.getJobDescription(), job.getEmploymentType(), job.getEMailAddress());
+                        }
                     });
                 } catch (Exception e) {
                     System.out.println(e);
@@ -93,8 +110,8 @@ public class Controller {
         }
     }
 
-    public void postJob(String jobName, String jobDescription, String jobLocation, String employmentType) throws IOException, InterruptedException {
-        Job job = new Job(jobName, jobDescription, jobLocation, employmentType, false);
+    public void postJob(String jobName, String jobDescription, String jobLocation, String employmentType, String eMail) throws IOException, InterruptedException {
+        Job job = new Job(jobName, jobDescription, jobLocation, employmentType, false,eMail);
         System.out.println(gson.toJson(job));
         HttpRequest req = HttpRequest.newBuilder()
                 .POST(HttpRequest.BodyPublishers.ofString(gson.toJson(job)))
@@ -109,10 +126,10 @@ public class Controller {
     }
 
     //not working
-    public void getJob(String searchBar) throws IOException, InterruptedException {
+    public void getJob(String search) throws IOException, InterruptedException {
         HttpRequest req = HttpRequest.newBuilder()
                 .GET()
-                .uri(URI.create("http://localhost:8080/job/" + searchBar))
+                .uri(URI.create("http://localhost:8080/job/" + search))
                 .setHeader("User-Agent", "Java 11 HttpClient Bot")
                 .header("Content-Type", "application/json")
                 .build();
@@ -122,6 +139,7 @@ public class Controller {
         Job[] j = gson.fromJson(resp.body(), Job[].class);
         Platform.runLater(() -> {
             jobName.setText(j[0].getJobName());
+            System.out.println(j[0].getJobLocation());
         });
         System.out.println(resp.statusCode());
         System.out.println(resp.body());
@@ -153,19 +171,19 @@ public class Controller {
     }
 
     public void addJob(ActionEvent event) throws IOException, InterruptedException {
-        postJob(jobName.getText(), jobLocation.getText(), jobDescription.getText(), jobEmploymentType.getText());
+        postJob(jobName.getText(), jobLocation.getText(), jobDescription.getText(), jobEmploymentType.getText(), jobEMail.getText());
         switchToMainScene(event);
-        createElement(jobName.getText(), jobLocation.getText(), jobDescription.getText(), jobEmploymentType.getText());
+        createElement(jobName.getText(), jobLocation.getText(), jobDescription.getText(), jobEmploymentType.getText(), jobEMail.getText());
     }
 
     //not working
     @FXML
-    public void searchJob(ActionEvent actionEvent, String searchField) throws IOException, InterruptedException {
-        getJob(searchField);
+    public void searchJob(String search) throws IOException, InterruptedException {
+        // getJob(searchField.toString());
     }
 
-    public void createElement(String jobName, String jobDescription, String jobLocation, String employmentType) {
-        Job job = new Job(jobName, jobDescription, jobLocation, employmentType, false);
+    public void createElement(String jobName, String jobDescription, String jobLocation, String employmentType, String eMail) {
+        Job job = new Job(jobName, jobDescription, jobLocation, employmentType, false,eMail);
         VBox card = new VBox();
         card.setAlignment(Pos.CENTER);
         card.getStyleClass().add("card");
@@ -175,7 +193,8 @@ public class Controller {
         Label location = new Label(job.getJobLocation());
         Label description = new Label(job.getJobDescription());
         Label employment = new Label(job.getEmploymentType());
-        card.getChildren().addAll(head, location, description, employment);
+        Label email = new Label(eMail);
+        card.getChildren().addAll(head, location, description, employment, email);
         scrollPaneVBox.getChildren().addAll(card);
     }
 

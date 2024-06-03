@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c45656fd-2dbf-4cfe-9ba0-a81472953f44" name="Changes" comment="show jobs">
+    <list default="true" id="c45656fd-2dbf-4cfe-9ba0-a81472953f44" name="Changes" comment="removed debugging statement">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jobportal/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jobportal/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/jobportal/Job.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/jobportal/Job.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/jobportal/add-job.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/jobportal/add-job.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/jobportal/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/jobportal/application.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +54,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/chris/dev/Job-Portal-in-Java-/jobPortal&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jakob/dev/welcome-to-docker&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -119,7 +122,12 @@
       <workItem from="1714125535883" duration="1389000" />
       <workItem from="1714398557897" duration="2590000" />
       <workItem from="1714636587725" duration="908000" />
-      <workItem from="1714975418382" duration="1500000" />
+      <workItem from="1714975418382" duration="2107000" />
+      <workItem from="1716022184568" duration="51000" />
+      <workItem from="1716365052547" duration="31000" />
+      <workItem from="1716983161862" duration="3149000" />
+      <workItem from="1716986341288" duration="1192000" />
+      <workItem from="1717394624341" duration="2339000" />
     </task>
     <task id="LOCAL-00001" summary="add setup for connection with DB">
       <option name="closed" value="true" />
@@ -201,7 +209,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714399554768</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="removed debugging statement">
+      <option name="closed" value="true" />
+      <created>1714980088702</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1714980088703</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,6 +257,7 @@
     <MESSAGE value="format code" />
     <MESSAGE value="fix jobDescription is null" />
     <MESSAGE value="change name of jobShortDescription to JobDescription" />
-    <option name="LAST_COMMIT_MESSAGE" value="change name of jobShortDescription to JobDescription" />
+    <MESSAGE value="removed debugging statement" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed debugging statement" />
   </component>
 </project>

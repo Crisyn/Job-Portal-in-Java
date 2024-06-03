@@ -4,20 +4,21 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.jobportal.Controller">
-    <TextField layoutX="226.0" layoutY="98.0" styleClass="text-field" fx:id="jobName"/>
-    <TextField layoutX="226.0" layoutY="232.0" styleClass="text-field" fx:id="jobDescription"/>
-    <TextField layoutX="225.0" layoutY="165.0" styleClass="text-field" fx:id="jobLocation"/>
-    <TextField layoutX="224.0" layoutY="297.0" styleClass="text-field" fx:id="jobEmploymentType"/>
-    <Label layoutX="227.0" layoutY="81.0" text="Job Name"/>
-    <Label layoutX="226.0" layoutY="214.0" text="Description"/>
-    <Label layoutX="225.0" layoutY="147.0" text="Location"/>
-    <Label layoutX="225.0" layoutY="279.0" text="Employment Type"/>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.jobportal.Controller">
+    <TextField fx:id="jobName" layoutX="226.0" layoutY="98.0" styleClass="text-field" />
+    <TextField fx:id="jobDescription" layoutX="226.0" layoutY="202.0" styleClass="text-field" />
+    <TextField fx:id="jobLocation" layoutX="226.0" layoutY="151.0" styleClass="text-field" />
+    <TextField fx:id="jobEmploymentType" layoutX="224.0" layoutY="257.0" styleClass="text-field" />
+    <TextField fx:id="jobEMail" layoutX="224.0" layoutY="317.0" styleClass="text-field" />
+    <Label layoutX="227.0" layoutY="81.0" text="Job Name" />
+    <Label layoutX="226.0" layoutY="184.0" text="Description" />
+    <Label layoutX="226.0" layoutY="133.0" text="Location" />
+    <Label layoutX="225.0" layoutY="239.0" text="Employment Type" />
+    <Label layoutX="224.0" layoutY="293.0" text="E-Mail" />
     <Label layoutX="241.0" layoutY="51.0" prefHeight="18.0" prefWidth="106.0" text="Ad new Job">
         <font>
-            <Font size="20.0"/>
+            <Font size="20.0" />
         </font>
     </Label>
-    <Button layoutX="264.0" layoutY="338.0" mnemonicParsing="false" text="Add Job" onAction="#addJob"/>
+    <Button layoutX="264.0" layoutY="348.0" mnemonicParsing="false" onAction="#addJob" text="Add Job" />
 </AnchorPane>
